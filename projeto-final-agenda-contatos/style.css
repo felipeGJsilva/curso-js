@@ -1,56 +1,181 @@
 /*
-  Estilize aqui: cores, layout, animações básicas
-  Sugestão: experimente usar Google Fonts
+  Estilo para o Sistema de Recados
 */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
 body {
-  font-family: 'Roboto', Arial, sans-serif;
-  background: #f7faff;
-  color: #222;
+  font-family: 'Poppins', sans-serif;
+  background: #f5f7fa;
+  color: #333;
   margin: 0;
   padding: 0;
+  line-height: 1.6;
 }
-header {
-  background: #4e8cff;
-  color: #fff;
-  padding: 1rem;
-  text-align: center;
-}
-main {
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 2rem;
-  min-height: 60vh;
+}
+
+header {
+  background: #4f46e5;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  margin-bottom: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background: #4f46e5;
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.25rem;
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus, textarea:focus {
+  outline: none;
+  border-color: #4f46e5;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.btn {
+  background: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
   transition: background 0.3s;
 }
-button {
-  margin: 0.5rem 0.5rem 0.5rem 0;
-  padding: 0.5rem 1rem;
-  border: none;
-  background: #4e8cff;
-  color: #fff;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
+
+.btn:hover {
+  background: #4338ca;
 }
-button:hover {
-  background: #2563c9;
+
+.btn-danger {
+  background: #ef4444;
 }
-input {
-  margin: 0.5rem 0.5rem 0.5rem 0;
-  padding: 0.5rem;
-  border-radius: 4px;
-  border: 1px solid #bbb;
+
+.btn-danger:hover {
+  background: #dc2626;
 }
+
+.message-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.message-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  position: relative;
+}
+
+.message-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.message-content {
+  margin-bottom: 1.5rem;
+}
+
+.message-actions {
+  text-align: right;
+}
+
 .fade-in {
-  animation: fadeIn 0.7s;
+  animation: fadeIn 0.5s ease-in;
 }
+
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
 }
-.slide-in {
-  animation: slideIn 0.5s;
+
+.slide-out {
+  animation: slideOut 0.3s ease-out forwards;
 }
-@keyframes slideIn {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+
+@keyframes slideOut {
+  to { opacity: 0; transform: translateX(100px); }
+}
+
+.invalid-feedback {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+.is-invalid {
+  border-color: #ef4444 !important;
+}
+
+.is-invalid + .invalid-feedback {
+  display: block;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  color: #666;
 }
